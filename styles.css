@@ -1,0 +1,133 @@
+@import url("https://fonts.cdnfonts.com/css/samsung-sans-4");
+
+* {
+  box-sizing: border-box;
+  font-family: "Samsung Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #000;
+  color: white;
+}
+
+.card_container {
+  perspective: 1000px;
+  height: 250px;
+  width: 350px;
+  margin: 100px auto;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+  position: relative;
+}
+
+.card_container:hover .card {
+  transform: rotateY(180deg);
+}
+
+.front_card,
+.back_card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.2);
+}
+
+.front_card {
+  background-color: #fff;
+  padding: 20px;
+}
+
+.front_card img {
+  max-width: 80%;
+  display: block;
+  margin: 65px auto;
+  height: 75px;
+  width: 200px;
+  display: block;
+}
+
+.back_card {
+  transform: rotateY(180deg);
+  padding: 2px;
+  animation: flow-border 3s linear infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(58, 80, 180, 1) 0%,
+    rgba(151, 102, 151, 1) 11%,
+    rgba(206, 206, 41, 1) 23%,
+    rgba(217, 154, 46, 1) 35%,
+    rgba(253, 29, 29, 1) 41%,
+    rgba(252, 106, 50, 1) 65%,
+    rgba(252, 78, 159, 1) 74%,
+    rgba(252, 56, 245, 1) 79%,
+    rgba(252, 147, 61, 1) 92%,
+    rgba(252, 176, 69, 1) 100%
+  );
+  background-size: 300% 300%;
+}
+
+.back_content {
+  background-color: #000;
+  color: #fff;
+  border-radius: 18px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.name {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: aqua;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.description {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 15px;
+  line-height: 1.4;
+}
+
+.btn {
+  padding: 6px 14px;
+  background-color: cyan;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background-color: #00bcd4;
+}
+
+@keyframes flow-border {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
